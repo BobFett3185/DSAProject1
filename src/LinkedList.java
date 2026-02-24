@@ -1,4 +1,4 @@
-public class LinkedList <AnyType extends IDedObject> {
+public class LinkedList <AnyType extends Product> {
 
     private Node head; // head of the list
 
