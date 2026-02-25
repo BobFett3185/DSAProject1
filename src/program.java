@@ -66,6 +66,7 @@ public class program {
     }
 
     public static void printMenu(){
+        System.out.println(); 
         System.out.println("i. Make Empty ");
         System.out.println("ii.	Find ID");
         System.out.println("iii. Insert Product at front");
