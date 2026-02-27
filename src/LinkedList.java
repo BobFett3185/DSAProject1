@@ -1,4 +1,4 @@
-public class LinkedList <AnyType extends Product> {
+public class LinkedList <AnyType extends IDedObject> { // generic linked list class that holds objects of type AnyType which implements IDedObject
 
     private Node head; // head of the list
 
@@ -25,7 +25,7 @@ public class LinkedList <AnyType extends Product> {
     public AnyType findID(int id){ // get type to get id and return type
         Node current = head; 
 
-        while(current!=null){
+        while(current!=null){ // while not null keep going through and checking if we found the id
             if(id == current.data.getID()){
                 return current.data; 
             }
@@ -49,18 +49,18 @@ public class LinkedList <AnyType extends Product> {
     }
 
 
-    public AnyType deleteFromFront(){
-        if(head == null){
+    public AnyType deleteFromFront(){ 
+        if(head == null){ // check if list is empty
             return null; 
         }
 
-        AnyType data = head.data; 
+        AnyType data = head.data;  // store so we can return it after we delete node
         head = head.next;// skip over our first element 
         return data;
     }
 
     public AnyType delete(int id){
-        if(head == null){
+        if(head == null){ // check for empty list
             return null; 
         }
 
@@ -70,9 +70,9 @@ public class LinkedList <AnyType extends Product> {
 
         Node current = head; 
 
-        while(current.next!=null){
+        while(current.next!=null){ // keep going through list until we find id or last node
             if(current.next.data.getID() == id){ // if next node is the one to delete
-                AnyType data = current.next.data; 
+                AnyType data = current.next.data; // store that data so we can return it
                 current.next = current.next.next; // skip over the node to delete
                 return data; 
             }
@@ -83,18 +83,19 @@ public class LinkedList <AnyType extends Product> {
     }
 
     public void printAllRecords(){
-        if(head == null){
+        if(head == null){ // check that not empty
             System.out.println("List is empty.");
             return; 
         }
 
         Node current = head; 
 
-        while(current!=null){
+        while(current!=null){ // print using our print function in Product
             current.data.printID(); // print data of current node
             System.out.println(); // print blank line for separation
             current = current.next; 
         }
+        
     }
 
 
